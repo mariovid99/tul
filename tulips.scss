@@ -9,6 +9,7 @@ $yellowish: #eddec1;
 
 body {
   background-color: $yellowish;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .container{
@@ -243,6 +244,28 @@ $hair-size:30px;
   width: 50%;
 }
 
+.sticker-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.sticker {
+  margin: 0;
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+  width: 50%;
+  font-weight: 700;
+}
+
+.sdd{
+  width: 30%;
+  margin: 0;
+}
+
 @keyframes sway {
   0%, 100% {
       transform: rotate(-2deg);
@@ -270,6 +293,10 @@ $hair-size:30px;
   }
 
   .message {
+    font-size: 1.1em; /* Reduce el tamaño del texto */
+    width: 80%; /* Hace que el texto ocupe más espacio */
+  }
+  .sticker {
     font-size: 1.1em; /* Reduce el tamaño del texto */
     width: 80%; /* Hace que el texto ocupe más espacio */
   }

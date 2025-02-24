@@ -5,6 +5,7 @@
 
 body {
   background-color: #eddec1;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .container {
@@ -234,6 +235,28 @@ body {
   width: 50%;
 }
 
+.sticker-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.sticker {
+  margin: 0;
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+  width: 50%;
+  font-weight: 700;
+}
+
+.sdd {
+  width: 30%;
+  margin: 0;
+}
+
 @keyframes sway {
   0%, 100% {
     transform: rotate(-2deg);
@@ -257,7 +280,11 @@ body {
     margin-top: 20px;
   }
   .message {
-    font-size: 1.2em; /* Reduce el tamaño del texto */
+    font-size: 1.1em; /* Reduce el tamaño del texto */
+    width: 80%; /* Hace que el texto ocupe más espacio */
+  }
+  .sticker {
+    font-size: 1.1em; /* Reduce el tamaño del texto */
     width: 80%; /* Hace que el texto ocupe más espacio */
   }
 }/*# sourceMappingURL=tulips.css.map */
