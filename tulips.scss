@@ -252,5 +252,28 @@ $hair-size:30px;
   }
 }
 
+@media (max-width: 800px) {
+
+  .container{
+    position: relative;
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;
+    transform: scale(0.6); /* Reduce el tamaño del bouquet */
+  }
+
+  .message-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .message {
+    font-size: 1.2em; /* Reduce el tamaño del texto */
+    width: 80%; /* Hace que el texto ocupe más espacio */
+  }
+}
+
 
 
