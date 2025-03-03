@@ -1,0 +1,21 @@
+name: Publicar mensaje y sticker del día
+on:
+  schedule:
+    - cron: "0 3 * * *" # Se ejecuta a las 3 a.m. UTC
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "Mario"
+          git config --global user.email "mariovida99@gmail.com"
+
+      - name: Hacer commit y push
+        run: |
+          git add .
+          git commit -m "Actualización automática del mensaje y sticker del día"
+          git push
