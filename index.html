@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tulipanes para ti</title>
     <link rel="stylesheet" href="tulips.css" />
+    <script>
+      // Cargar el mensaje dinámico
+      fetch("mensaje.txt")
+        .then((response) => response.text())
+        .then((text) => {
+          document.getElementById("mensaje").innerHTML = `<em>${text}</em>`;
+        });
+
+      // Cargar el sticker del día
+      const stickerImg = document.getElementById("sticker-img");
+      stickerImg.src = "SDD.png?" + new Date().getTime(); // Evitar caché
+    </script>
   </head>
   <body>
     <div class="container">
@@ -84,27 +96,22 @@
     <!-- Mensaje para tu novia -->
     <div class="message-container">
       <div class="message">
-        <p>
-          <em
-            >¡Finalmente después de 64 días nos conocimos! Disfrute mucho estar
-            contigo y conocerte fui el mas feliz. Espero no terminar bloqueado
-            ni con deseos de suerte en Monterrey jajaja. Estas bien preciosa
-            reina ya sabia que en persona estabas igual pero alch me hubiera
-            gustado que hubiera aplicado el sticker del ayer "Y la del insta?",
-            sería épico. Gracias por aceptar mi date y quedarte mas tiempo aun
-            cuando morías de sueño ❤️.
-          </em>
-        </p>
+        <p id="mensaje"></p>
       </div>
     </div>
     <div class="sticker-container">
       <div class="sticker">
         <div>
-          <em
-            >Sticker del día: Hoy merecemos ser nosotros el sticker del día.</em
-          >
+          <em>Sticker del día:</em>
         </div>
-        <div><img src="SDD.png" alt="sticker-del-dia" class="sdd" /></div>
+        <div>
+          <img
+            src="SDD.png"
+            alt="sticker-del-dia"
+            class="sdd"
+            id="sticker-img"
+          />
+        </div>
       </div>
     </div>
   </body>
