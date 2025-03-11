@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tulipanes para ti</title>
     <link rel="stylesheet" href="tulips.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <script>
       // Cargar el mensaje dinámico
       fetch("mensaje.txt")
@@ -14,11 +18,33 @@
         });
 
       // Cargar el sticker del día
-      const stickerImg = document.getElementById("sticker-img");
-      stickerImg.src = "SDD.png?" + new Date().getTime(); // Evitar caché
+
+      // Posicionar stickers decorativos aleatoriamente
+      window.onload = () => {
+        const stickersContainer = document.getElementById(
+          "decorative-stickers"
+        );
+        for (let i = 1; i <= 24; i++) {
+          const sticker = document.createElement("img");
+          sticker.src = `stickers/sticker${i}.png`; // Asegúrate de tener 20 imágenes en la carpeta stickers
+          console.log(sticker);
+          sticker.classList.add("decorative-sticker");
+          sticker.style.top = `${Math.random() * 100}vh`;
+          sticker.style.left = `${Math.random() * 100}vw`;
+          stickersContainer.appendChild(sticker);
+        }
+      };
     </script>
   </head>
   <body>
+    <!-- Título y beso -->
+    <div class="header">
+      <h1>BLOG DE GRECIA</h1>
+      <span class="kiss">💋</span>
+    </div>
+
+    <!-- Contenedor de decoraciones -->
+    <div id="decorative-stickers"></div>
     <div class="container">
       <!-- Tulipán principal -->
       <div class="tulip">

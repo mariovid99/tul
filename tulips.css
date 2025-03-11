@@ -257,6 +257,51 @@ body {
   margin: 0;
 }
 
+.header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.header h1 {
+  font-size: 4em;
+  font-family: "Dancing Script", cursive; /* Usa una fuente bonita */
+  color: #ff8081;
+  display: inline-block;
+  margin: 0;
+}
+
+.kiss {
+  font-size: 3em;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Estilos para las decoraciones */
+#decorative-stickers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Para que no interfieran con los clics */
+  z-index: -1; /* Para que estén detrás del contenido */
+}
+
+.decorative-sticker {
+  position: absolute;
+  width: 50px; /* Tamaño de los stickers */
+  height: 50px;
+  animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 @keyframes sway {
   0%, 100% {
     transform: rotate(-2deg);
@@ -286,5 +331,15 @@ body {
   .sticker {
     font-size: 1.1em; /* Reduce el tamaño del texto */
     width: 80%; /* Hace que el texto ocupe más espacio */
+  }
+  .header h1 {
+    font-size: 2.5em;
+  }
+  .kiss {
+    font-size: 2em;
+  }
+  .decorative-sticker {
+    width: 30px;
+    height: 30px;
   }
 }/*# sourceMappingURL=tulips.css.map */
