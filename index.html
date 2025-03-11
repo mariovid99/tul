@@ -24,15 +24,44 @@
         const stickersContainer = document.getElementById(
           "decorative-stickers"
         );
-        for (let i = 1; i <= 24; i++) {
-          const sticker = document.createElement("img");
-          sticker.src = `stickers/sticker${i}.png`; // Asegúrate de tener 20 imágenes en la carpeta stickers
-          console.log(sticker);
-          sticker.classList.add("decorative-sticker");
-          sticker.style.top = `${Math.random() * 100}vh`;
-          sticker.style.left = `${Math.random() * 100}vw`;
-          stickersContainer.appendChild(sticker);
+        const totalStickers = 25; // Número total de stickers
+
+        // Función para distribuir las imágenes en los márgenes
+        function distribuirStickers() {
+          const marginSize = 20; // Tamaño del margen en píxeles
+          const stickerSize = 50; // Tamaño de los stickers en píxeles
+
+          for (let i = 1; i <= totalStickers; i++) {
+            const sticker = document.createElement("img");
+            sticker.src = `stickers/sticker${i}.png`; // Genera el nombre del archivo
+            sticker.classList.add("decorative-sticker");
+
+            // Calcular la posición
+            if (i <= 7) {
+              // Margen superior
+              sticker.style.top = `${marginSize}px`;
+              sticker.style.left = `${
+                marginSize + (i - 1) * (stickerSize + marginSize)
+              }px`;
+            } else if (i <= 14) {
+              // Margen izquierdo
+              sticker.style.top = `${
+                marginSize + (i - 8) * (stickerSize + marginSize)
+              }px`;
+              sticker.style.left = `${marginSize}px`;
+            } else {
+              // Margen derecho
+              sticker.style.top = `${
+                marginSize + (i - 15) * (stickerSize + marginSize)
+              }px`;
+              sticker.style.left = `calc(100% - ${marginSize + stickerSize}px)`;
+            }
+
+            stickersContainer.appendChild(sticker);
+          }
         }
+
+        distribuirStickers();
       };
     </script>
   </head>
