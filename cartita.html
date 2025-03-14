@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tulipanes para ti</title>
+    <link rel="stylesheet" href="tulips.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Cargar el mensaje dinámico
+      fetch("mensajeOG.txt")
+        .then((response) => response.text())
+        .then((text) => {
+          document.getElementById("mensaje").innerHTML = `<em>${text}</em>`;
+        });
+
+      // Cargar el sticker del día
+
+      // Posicionar stickers decorativos aleatoriamente
+      window.onload = () => {
+        const stickersContainer = document.getElementById(
+          "decorative-stickers"
+        );
+        const totalStickers = 25; // Número total de stickers
+
+        // Función para distribuir las imágenes en los márgenes
+        function distribuirStickers() {
+          const marginSize = 20; // Tamaño del margen en píxeles
+          const stickerSize = 50; // Tamaño de los stickers en píxeles
+
+          for (let i = 1; i <= totalStickers; i++) {
+            const sticker = document.createElement("img");
+            sticker.src = `stickers/sticker${i}.png`; // Genera el nombre del archivo
+            sticker.classList.add("decorative-sticker");
+
+            // Calcular la posición
+            if (i <= 7) {
+              // Margen superior
+              sticker.style.top = `${marginSize}px`;
+              sticker.style.left = `${
+                marginSize + (i - 1) * (stickerSize + marginSize)
+              }px`;
+            } else if (i <= 14) {
+              // Margen izquierdo
+              sticker.style.top = `${
+                marginSize + (i - 8) * (stickerSize + marginSize)
+              }px`;
+              sticker.style.left = `${marginSize}px`;
+            } else {
+              // Margen derecho
+              sticker.style.top = `${
+                marginSize + (i - 15) * (stickerSize + marginSize)
+              }px`;
+              sticker.style.left = `calc(100% - ${marginSize + stickerSize}px)`;
+            }
+
+            stickersContainer.appendChild(sticker);
+          }
+        }
+
+        distribuirStickers();
+      };
+    </script>
+  </head>
+  <body>
+    <!-- Título y beso -->
+    <div class="header">
+      <h1>BLOG DE GRECIA</h1>
+      <span class="kiss">💋</span>
+    </div>
+
+    <!-- Contenedor de decoraciones -->
+    <div id="decorative-stickers"></div>
+    <div class="container">
+      <!-- Tulipán principal -->
+      <div class="tulip">
+        <div class="stem">
+          <div class="tulipHead">
+            <div class="tulipHair lightTulip lightTulip-1"></div>
+            <div class="tulipHair darkTulip darkTulip-1"></div>
+            <div class="tulipHair lightTulip lightTulip-2"></div>
+            <div class="tulipHair darkTulip darkTulip-2"></div>
+            <div class="tulipHair lightTulip lightTulip-3"></div>
+            <div class="tulipFace">
+              <div class="leftEye tulipEyes"></div>
+              <div class="rightEye tulipEyes"></div>
+              <div class="tulipSmile"></div>
+              <div class="leftBlush tulipBlush"></div>
+              <div class="rightBlush tulipBlush"></div>
+            </div>
+          </div>
+          <div class="rightTulipLeaf tulipLeaf leaf"></div>
+          <div class="leftTulipLeaf tulipLeaf leaf"></div>
+          <div class="rightStemLeaf stemLeaf leaf"></div>
+          <div class="leftStemLeaf stemLeaf leaf"></div>
+        </div>
+      </div>
+
+      <!-- Tulipán izquierdo -->
+      <div class="leftBabyTulip tulip">
+        <div class="stem">
+          <div class="tulipHead">
+            <div class="tulipHair lightTulip lightTulip-1"></div>
+            <div class="tulipHair darkTulip darkTulip-1"></div>
+            <div class="tulipHair lightTulip lightTulip-2"></div>
+            <div class="tulipHair darkTulip darkTulip-2"></div>
+            <div class="tulipHair lightTulip lightTulip-3"></div>
+            <div class="tulipFace">
+              <div class="leftEye tulipEyes"></div>
+              <div class="rightEye tulipEyes"></div>
+              <div class="tulipSmile"></div>
+              <div class="leftBlush tulipBlush"></div>
+              <div class="rightBlush tulipBlush"></div>
+            </div>
+          </div>
+          <div class="rightTulipLeaf tulipLeaf leaf"></div>
+          <div class="leftTulipLeaf tulipLeaf leaf"></div>
+          <div class="rightStemLeaf stemLeaf leaf"></div>
+          <div class="leftStemLeaf stemLeaf leaf"></div>
+        </div>
+      </div>
+
+      <!-- Tulipán derecho -->
+      <div class="rightBabyTulip tulip">
+        <div class="stem">
+          <div class="tulipHead">
+            <div class="tulipHair lightTulip lightTulip-1"></div>
+            <div class="tulipHair darkTulip darkTulip-1"></div>
+            <div class="tulipHair lightTulip lightTulip-2"></div>
+            <div class="tulipHair darkTulip darkTulip-2"></div>
+            <div class="tulipHair lightTulip lightTulip-3"></div>
+            <div class="tulipFace">
+              <div class="leftEye tulipEyes"></div>
+              <div class="rightEye tulipEyes"></div>
+              <div class="tulipSmile"></div>
+              <div class="leftBlush tulipBlush"></div>
+              <div class="rightBlush tulipBlush"></div>
+            </div>
+          </div>
+          <div class="rightTulipLeaf tulipLeaf leaf"></div>
+          <div class="leftTulipLeaf tulipLeaf leaf"></div>
+          <div class="rightStemLeaf stemLeaf leaf"></div>
+          <div class="leftStemLeaf stemLeaf leaf"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mensaje para tu novia -->
+    <div class="message-container">
+      <div class="message">
+        <p id="mensaje"></p>
+      </div>
+    </div>
+    <div class="sticker-container">
+      <div class="sticker">
+        <div>
+          <em>Sticker del día:</em>
+        </div>
+        <div>
+          <img
+            src="SDD.png"
+            alt="sticker-del-dia"
+            class="sdd"
+            id="sticker-img"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
