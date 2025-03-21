@@ -107,7 +107,7 @@ body {
 .tulipHead {
   top: -159px;
   left: -102px;
-  background-color: #f3a69e;
+  background-color: #f4f752;
   width: 200px;
   height: 165px;
   border-radius: 0 0 50% 50%;
@@ -116,7 +116,7 @@ body {
 }
 
 .tulipLeaf {
-  background-color: #ff8081;
+  background-color: #ffd000;
   width: 40px;
   height: 40px;
   z-index: -1;
@@ -137,16 +137,16 @@ body {
   top: -60px;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 60px solid #f3a69e;
+  border-bottom: 60px solid #f4f752;
 }
 
 .lightTulip {
-  border-bottom: 60px solid #f3a69e;
+  border-bottom: 60px solid #f4f752;
 }
 
 .darkTulip {
-  border-bottom: 60px solid #ff8081;
-  border-bottom: 32px solid #ff8081;
+  border-bottom: 60px solid #ffd000;
+  border-bottom: 32px solid #f4f752;
   top: -32px;
   z-index: -1;
 }
@@ -205,7 +205,7 @@ body {
 
 .tulipBlush {
   border-radius: 50%;
-  background-color: #ff8081;
+  background-color: #ffd000;
   width: 30px;
   height: 30px;
 }

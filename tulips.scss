@@ -1,7 +1,8 @@
 $light-green: #25af59;
 $green: #139a3e;
-$light-pink: #f3a69e;
-$pink: #ff8081;
+// $light-pink: #f3a69e; 
+$light-pink: #f4f752; 
+$pink: #ffd000;
 $yellowish: #eddec1;
 * {
   box-sizing: border-box;
@@ -152,7 +153,7 @@ $hair-size:30px;
 
 .darkTulip {
   border-bottom: $hair-size * 2 solid $pink;
-  border-bottom: 32px solid #ff8081;
+  border-bottom: 32px solid $light-pink;
   top: -32px;
   z-index: -1;
 }
