@@ -106,7 +106,10 @@
           const password = await passwordResponse.text();
           const hint = await hintResponse.text();
 
-          return { password: password.trim(), hint: hint.trim() };
+          return {
+            password: password.trim().toLowerCase(),
+            hint: hint.trim(),
+          };
         } catch (error) {
           console.error("Error:", error);
           return { password: "", hint: "" };
@@ -115,7 +118,9 @@
 
       // Función para validar la contraseña
       async function validatePassword() {
-        const passwordInput = document.getElementById("password-input").value;
+        const passwordInput = document
+          .getElementById("password-input")
+          .value.toLowerCase();
         const { password, hint } = await loadPasswordAndHint();
         const loginImage = document.querySelector(".login-image"); // Selecciona la imagen de login
 
