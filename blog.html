@@ -24,11 +24,11 @@
         const stickersContainer = document.getElementById(
           "decorative-stickers"
         );
-        const totalStickers = 25; // Número total de stickers
+        const totalStickers = 34; // Número total de stickers
 
         // Función para distribuir las imágenes en los márgenes
         function distribuirStickers() {
-          const marginSize = 20; // Tamaño del margen en píxeles
+          const marginSize = 15; // Tamaño del margen en píxeles
           const stickerSize = 50; // Tamaño de los stickers en píxeles
 
           for (let i = 1; i <= totalStickers; i++) {
@@ -43,7 +43,7 @@
               sticker.style.left = `${
                 marginSize + (i - 1) * (stickerSize + marginSize)
               }px`;
-            } else if (i <= 14) {
+            } else if (i <= 20) {
               // Margen izquierdo
               sticker.style.top = `${
                 marginSize + (i - 8) * (stickerSize + marginSize)
@@ -52,7 +52,7 @@
             } else {
               // Margen derecho
               sticker.style.top = `${
-                marginSize + (i - 15) * (stickerSize + marginSize)
+                marginSize + (i - 21) * (stickerSize + marginSize)
               }px`;
               sticker.style.left = `calc(100% - ${marginSize + stickerSize}px)`;
             }
