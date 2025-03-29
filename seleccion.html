@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensajes Diarios</title>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+      }
+      .panel {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .panel:hover {
+        transform: scale(1.05);
+      }
+      .grecia {
+        background-color: #ff80ab;
+      }
+      .mario {
+        background-color: #2196f3;
+      }
+      .hidden {
+        display: none;
+      }
+      .form-container {
+        text-align: center;
+        padding: 20px;
+      }
+      input,
+      textarea,
+      button {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+        padding: 10px;
+        font-size: 1rem;
+      }
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="panel grecia" onclick="seleccionarUsuario('Grecia')">
+        Grecia
+      </div>
+      <div class="panel mario" onclick="seleccionarUsuario('Mario')">Mario</div>
+    </div>
+
+    <div id="formulario" class="hidden form-container">
+      <h2 id="bienvenida"></h2>
+      <textarea id="mensaje" placeholder="Escribe tu mensaje..."></textarea>
+      <input type="file" id="imagen" accept="image/*" />
+      <button onclick="guardarDatos()">Subir</button>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+      import {
+        getStorage,
+        ref,
+        uploadBytes,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBujGKWPDS0c0anlsl719Cvz1EBBFP1TBc",
+        authDomain: "la-liga-3af44.firebaseapp.com",
+        projectId: "la-liga-3af44",
+        storageBucket: "la-liga-3af44.firebasestorage.app",
+        messagingSenderId: "385917235915",
+        appId: "1:385917235915:web:24d68cc5fb1c32fea3a14e",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+      let usuarioSeleccionado = "";
+
+      window.seleccionarUsuario = (usuario) => {
+        usuarioSeleccionado = usuario;
+        document.querySelector(".container").style.display = "none";
+        document.getElementById("formulario").classList.remove("hidden");
+        document.getElementById(
+          "bienvenida"
+        ).innerText = `Hola, ${usuarioSeleccionado}!`;
+      };
+
+      window.guardarDatos = async () => {
+        const mensaje = document.getElementById("mensaje").value;
+        const archivo = document.getElementById("imagen").files[0];
+        let imagenURL = "";
+
+        if (archivo) {
+          const storageRef = ref(
+            storage,
+            `imagenes/${usuarioSeleccionado}-${Date.now()}`
+          );
+          await uploadBytes(storageRef, archivo);
+          imagenURL = await getDownloadURL(storageRef);
+        }
+
+        await addDoc(collection(db, "mensajes"), {
+          usuario: usuarioSeleccionado,
+          mensaje: mensaje,
+          imagen: imagenURL,
+          fecha: new Date(),
+        });
+        alert("Mensaje enviado!");
+      };
+    </script>
+  </body>
+</html>
